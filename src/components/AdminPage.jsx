@@ -22,8 +22,7 @@ const AdminPage = () => {
 
   const fetchApps = async () => {
     try {
-      console.log('i am called')
-      const response = await axios.get(`apps/`, { withCredentials: true });
+      const response = await axios.get(`https://varjinth.pythonanywhere.com/apps/`, { withCredentials: true });
 
       setApps(response.data);
     } catch (error) {
@@ -38,7 +37,7 @@ const AdminPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`/apps/`, formData, { withCredentials: true });
+      await axios.post(`https://varjinth.pythonanywhere.com/apps/`, formData, { withCredentials: true });
       //   toast.success("App added successfully!");
       alert("App added successfully!!!")
       fetchApps();
@@ -50,7 +49,7 @@ const AdminPage = () => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await axios.delete(`apps/${id}/`, { withCredentials: true });
+      const response = await axios.delete(`https://varjinth.pythonanywhere.com/apps/${id}/`, { withCredentials: true });
       //   toast.success("App deleted successfully!");
       if (response.status === 200) {
         console.log("App deleted successfully!");

@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const LoginApi = async (formData, setIsError, setMessage) => {
-    const response = await axios.post(`/login/`, formData);
+    const response = await axios.post(`https://varjinth.pythonanywhere.com/login/`, formData);
     if (response.status === 200) {
         return response.data
     }

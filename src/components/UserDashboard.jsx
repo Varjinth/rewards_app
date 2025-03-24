@@ -19,9 +19,9 @@ const UserDashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const pendingRes = await axiosInstance.get("/tasks/pending/");
-        const completedRes = await axiosInstance.get("/tasks/completed/");
-        const userRes = await axiosInstance.get('user/details/')
+        const pendingRes = await axiosInstance.get("https://varjinth.pythonanywhere.com/tasks/pending/");
+        const completedRes = await axiosInstance.get("https://varjinth.pythonanywhere.com/tasks/completed/");
+        const userRes = await axiosInstance.get('https://varjinth.pythonanywhere.com/user/details/')
 
         setPendingTasks(pendingRes.data);
         setCompletedTasks(completedRes.data);
@@ -50,14 +50,14 @@ const UserDashboard = () => {
     formData.append("app_id", selectedTask.id);
 
     try {
-      const response = await axios.post(`/tasks/`, formData, { withcredentials: true });
+      const response = await axios.post(`https://varjinth.pythonanywhere.com/tasks/`, formData, { withcredentials: true });
       if (response.status === 201) {
         alert("Screenshot uploaded successfully for " + selectedTask.name);
         setUploadedFile(null);
         setSelectedTask(null);
-        const pendingRes = await axios.get("/tasks/pending/");
-        const completedRes = await axios.get("/tasks/completed/");
-        const userRes = await axiosInstance.get('user/details/')
+        const pendingRes = await axios.get("https://varjinth.pythonanywhere.com/tasks/pending/");
+        const completedRes = await axios.get("https://varjinth.pythonanywhere.com/tasks/completed/");
+        const userRes = await axiosInstance.get('https://varjinth.pythonanywhere.com/user/details/')
         setPendingTasks(pendingRes.data);
         setCompletedTasks(completedRes.data);
         setUser(userRes.data)

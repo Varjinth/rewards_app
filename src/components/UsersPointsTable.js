@@ -12,7 +12,7 @@ const UsersPointsTable = () => {
 
     useEffect(() => {
         axios
-            .get("/user/details/", { withCredentials: true }) // Fetch user points API
+            .get("https://varjinth.pythonanywhere.com/user/details/", { withCredentials: true }) // Fetch user points API
             .then((res) => {
                 setUsers(res.data);
                 setLoading(false);

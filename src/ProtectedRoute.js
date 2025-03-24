@@ -10,10 +10,10 @@ const ProtectedRoute = () => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const response = await axios.get("/check-auth/", { withCredentials: true });
+        const response = await axios.get("https://varjinth.pythonanywhere.com/check-auth/", { withCredentials: true });
         setIsAuthenticated(response.data.authenticated);
       } catch (error) {
-        await axios.post("/logout/", {}, { withCredentials: true });
+        await axios.post("https://varjinth.pythonanywhere.com/logout/", {}, { withCredentials: true });
         setIsAuthenticated(false);
         
       }

@@ -30,7 +30,7 @@ function Register() {
     setErrors({});
 
     try {
-      const response = await axios.post("/register/", formData);
+      const response = await axios.post("https://varjinth.pythonanywhere.com/register/", formData);
       setMessage(response.data.message);
       navigate('/');
     } catch (error) {
