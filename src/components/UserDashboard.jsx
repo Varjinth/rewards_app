@@ -55,8 +55,8 @@ const UserDashboard = () => {
         alert("Screenshot uploaded successfully for " + selectedTask.name);
         setUploadedFile(null);
         setSelectedTask(null);
-        const pendingRes = await axios.get("https://varjinth.pythonanywhere.com/tasks/pending/");
-        const completedRes = await axios.get("https://varjinth.pythonanywhere.com/tasks/completed/");
+        const pendingRes = await axiosInstance.get("https://varjinth.pythonanywhere.com/tasks/pending/");
+        const completedRes = await axiosInstance.get("https://varjinth.pythonanywhere.com/tasks/completed/");
         const userRes = await axiosInstance.get('https://varjinth.pythonanywhere.com/user/details/')
         setPendingTasks(pendingRes.data);
         setCompletedTasks(completedRes.data);
