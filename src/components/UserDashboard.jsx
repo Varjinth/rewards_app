@@ -50,7 +50,7 @@ const UserDashboard = () => {
     formData.append("app_id", selectedTask.id);
 
     try {
-      const response = await axios.post(`https://varjinth.pythonanywhere.com/tasks/`, formData, { withcredentials: true });
+      const response = await axios.post(`https://varjinth.pythonanywhere.com/tasks/`, formData, { withCredentials: true });
       if (response.status === 201) {
         alert("Screenshot uploaded successfully for " + selectedTask.name);
         setUploadedFile(null);
