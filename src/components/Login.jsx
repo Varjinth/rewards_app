@@ -25,10 +25,11 @@ function Login() {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      const loginSuccess = await LoginApi(formData, setIsError, setMessage);
-      if (loginSuccess) {
-        const role = loginSuccess.get("role");
-        console.log(role)
+      const response = await axios.post("https://varjinth.pythonanywhere.com/login/", formData, { withcredentials: true });
+      if (response.status===200) {
+        console.log(response)
+
+        const role = response.data.get("role");
         if (role === "admin") {
           navigate("/rewards");
         } else {
