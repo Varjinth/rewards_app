@@ -28,6 +28,7 @@ function Login() {
       const loginSuccess = await LoginApi(formData, setIsError, setMessage);
       if (loginSuccess) {
         const role = loginSuccess.get("role");
+        console.log(role)
         if (role === "admin") {
           navigate("/rewards");
         } else {
