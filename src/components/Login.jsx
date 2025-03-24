@@ -4,9 +4,9 @@ import '../App.css';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { MDBBtn, MDBInput, MDBCheckbox } from 'mdb-react-ui-kit';
-import LoginApi from "../api/LoginApi"
 import { useNavigate, Link } from 'react-router-dom';
-import Cookies from "js-cookie";
+import axios from 'axios';
+
 
 function Login() {
   const navigate = useNavigate();
