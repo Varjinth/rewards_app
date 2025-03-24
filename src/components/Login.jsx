@@ -27,7 +27,7 @@ function Login() {
     try {
       const loginSuccess = await LoginApi(formData, setIsError, setMessage);
       if (loginSuccess) {
-        const role = Cookies.get("role");
+        const role = loginSuccess.get("role");
         if (role === "admin") {
           navigate("/rewards");
         } else {
