@@ -7,7 +7,7 @@ const Header = ({ redirect }) => {
   const navigate = useNavigate();
   const onLogout = async () => {
     try {
-      await axios.post("https://varjinth.pythonanywhere.com/logout/", {}, { withCredentials: true });
+      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/logout/`, {}, { withCredentials: true });
       navigate("/");
     } catch (error) {
       console.error("Logout failed:", error);

@@ -25,7 +25,7 @@ function Login() {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("https://varjinth.pythonanywhere.com/login/", formData, { withCredentials: true });
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/login/`, formData, { withCredentials: true });
       if (response.status===200) {
         console.log(response)
 
@@ -57,6 +57,9 @@ function Login() {
           </MDBCol>
           <MDBCol col='4' md='4' style={{ margin: "auto" }} >
             <form onSubmit={submitHandler} >
+            {message && <p style={{ color: "red" }}>{message}</p>}
+            
+
               <div className="d-flex flex-row align-items-center justify-content-center">
                 <p className="lead fw-normal mb-0 me-3">Sign in here</p>
               </div>

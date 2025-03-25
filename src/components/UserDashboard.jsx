@@ -19,9 +19,9 @@ const UserDashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const pendingRes = await axiosInstance.get("https://varjinth.pythonanywhere.com/tasks/pending/");
-        const completedRes = await axiosInstance.get("https://varjinth.pythonanywhere.com/tasks/completed/");
-        const userRes = await axiosInstance.get('https://varjinth.pythonanywhere.com/user/details/')
+        const pendingRes = await axiosInstance.get(`${process.env.REACT_APP_BACKEND_URL}/tasks/pending/`);
+        const completedRes = await axiosInstance.get(`${process.env.REACT_APP_BACKEND_URL}/tasks/completed/`);
+        const userRes = await axiosInstance.get(`${process.env.REACT_APP_BACKEND_URL}/user/details/`)
 
         setPendingTasks(pendingRes.data);
         setCompletedTasks(completedRes.data);
@@ -50,14 +50,15 @@ const UserDashboard = () => {
     formData.append("app_id", selectedTask.id);
 
     try {
-      const response = await axios.post(`https://varjinth.pythonanywhere.com/tasks/`, formData, { withCredentials: true });
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/tasks/`, formData, { withCredentials: true });
       if (response.status === 201) {
         alert("Screenshot uploaded successfully for " + selectedTask.name);
         setUploadedFile(null);
         setSelectedTask(null);
-        const pendingRes = await axiosInstance.get("https://varjinth.pythonanywhere.com/tasks/pending/");
-        const completedRes = await axiosInstance.get("https://varjinth.pythonanywhere.com/tasks/completed/");
-        const userRes = await axiosInstance.get('https://varjinth.pythonanywhere.com/user/details/')
+        const pendingRes = await axiosInstance.get(`${process.env.REACT_APP_BACKEND_URL}/tasks/pending/`);
+        const completedRes = await axiosInstance.get(`${process.env.REACT_APP_BACKEND_URL}/tasks/completed/`);
+        const userRes = await axiosInstance.get(`${process.env.REACT_APP_BACKEND_URL}/user/details/`)
+
         setPendingTasks(pendingRes.data);
         setCompletedTasks(completedRes.data);
         setUser(userRes.data)
